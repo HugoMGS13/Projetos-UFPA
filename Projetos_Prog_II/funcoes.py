@@ -4,7 +4,7 @@ def calcular_saldo_médio(cadastros):
         saldo_médio += saldo_médio + elemento["saldo"]
     return saldo_médio / len(cadastros)
     
-def filtrar_por_emaiLl(cadastros,tipodemail):
+def filtrar_por_email(cadastros,tipodemail):
     lista_filtrada = []
     for elemento in cadastros.copy():
         if tipodemail not in elemento["email"]:
