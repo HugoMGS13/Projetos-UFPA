@@ -18,7 +18,7 @@ def filtrar_por_saldo(cadastros, saldo, parametro):
             lista_filtrada.append(elemento)
 
 #dois dicionarios dentro de uma lista
-cadastrosos = [{"nome":"mingau","email":"mingau@gmail.com","saldo":58},{"nome":"roger","email":"roger@gmail.com","saldo":10.24}]
+cadastros = [{"nome":"mingau","email":"mingau@gmail.com","saldo":58},{"nome":"roger","email":"roger@gmail.com","saldo":10.24}]
 
 def extrair_nomes(cadastrosos):
     lista_com_nomes = []
