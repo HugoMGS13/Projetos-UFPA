@@ -3,24 +3,19 @@ def calcular_saldo_médio(cadastros):
     for elemento in cadastros:
         saldo_médio += saldo_médio + elemento["saldo"]
     return saldo_médio / len(cadastros)
-
-#filtro de lista dinamica
+    
 def filtrar_por_emaiLl(cadastros,tipodemail):
     lista_filtrada = []
     for elemento in cadastros.copy():
         if tipodemail not in elemento["email"]:
             lista_filtrada.append(elemento)
     return lista_filtrada()
-
-#filtra a lista por saldo
+    
 def filtrar_por_saldo(cadastros, saldo, parametro):
     lista_filtrada = []
     for elemento in cadastros.copy():
         if parametro.upper == "maior" and elemento["saldo"]  > saldo:
             lista_filtrada.append(elemento)
-    # for elemento in cadastros:
-    #     if elemento >= 1000 in elemento["saldo"]:
-    # return lista_por_saldo 
 
 #dois dicionarios dentro de uma lista
 cadastrosos = [{"nome":"mingau","email":"mingau@gmail.com","saldo":58},{"nome":"roger","email":"roger@gmail.com","saldo":10.24}]
