@@ -36,3 +36,55 @@ def q5(listaint,listastr):
     else:
       indice += 1
   return lista_nova
+
+# def q6(lista):
+#    """
+ #   Dada uma lista onde cada elemento corresponde a uma lista de números
+  #  inteiros, faça um filtro para obter uma lista de listas onde a soma dos elementos da
+   # lista de uma determinada posição é maior que a soma dos elementos da lista da
+    #próxima posição. 
+    #"""
+    
+def q7(lista1,lista2,lista3):
+    """
+    Dada três lista de números inteiros, faça uma redução para encontrar o
+    menor número resultante da soma dos elementos de índices correspondentes.
+    """
+    indice = 0
+    result = lista1[0]+lista2[0]+lista3[0]
+    for elemento in lista1:
+        soma = elemento + lista2[indice] + lista3[indice]
+        indice += 1
+        if soma <= result:
+            result = soma
+        elif soma > result:
+            continue
+    return result
+
+##def q8(lista):
+#  """
+ #   Dada uma lista de string, faça uma redução para determinar o tamanho da
+  #  maior string. Retorne o valor encontrado e o índice correspondente na lista. Se mais de
+   # uma string possuir o maior tamanho, retorne o menor índice.
+    #"""
+    #medidor = len(lista[0])
+    #for string in lista:
+      #  if len(string) >= medidor:
+       #     medidor = len(string)
+       
+#def q9(lista):
+  #  """
+ #   Dada uma lista de números reais, faça uma redução que implique na soma
+   # dos elementos. O elemento da posição i só pode ser somado se ele for maior que o
+   # elemento da posição i+1 (INCOMPLETA)
+   # """
+   # veri = 0
+   # indice = lista[1]
+   # for elemento in lista:
+    #    if elemento > lista[elemento+1]:
+     #       indice += 1
+      #      veri += 1
+    #if veri == len(lista):
+     #   return sum(lista)
+    #else:
+     #   return 'Essa lista não está ordenada em ordem decrescente'
