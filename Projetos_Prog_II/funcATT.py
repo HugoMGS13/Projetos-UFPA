@@ -1,4 +1,16 @@
 from math import sqrt
+
+def numeroprimo(num):
+  """
+  Função pra saber se o número é um númeor primo
+  """
+  for conta in range(2,num):
+    if num % conta == 0:
+      return False
+    else:
+      continue
+  return True
+  
 def q1(lista1,lista2):
   """
   Dada duas listas de string de mesmo tamanho, faça o mapeamento para obter uma lista em que cada elemento seja a concatenação dos elementos de mesmo índice das duas listas. 
@@ -10,7 +22,17 @@ def q1(lista1,lista2):
     índice += 1
   return lista_nova
 
-# falta fazer: def q2()
+def q1_compressed(lista1,lista2):
+   return [(a+b) for a,b in zip(lista1,lista2)]
+
+def q2(lista):
+   lista_nova = []
+   for item in lista:
+      lista_nova.append(encontrar_primo(item))
+   return lista_nova
+      
+def q2_compressed(lista):
+    return[encontrar_primo(item) for item in lista]
 
 def q3(lista):
   """
@@ -21,6 +43,9 @@ def q3(lista):
     if len(elemento) < 10:
       lista_nova.append(elemento)
   return sorted(lista_nova)
+
+def q3_compressed(lista):
+   return sorted([elemento for elemento in lista if len(elemento) < 10])
 
 #falta fazer: def q4()
 
@@ -101,18 +126,7 @@ def q10(lista):
   elementonovo = conc.replace(" ","")
   elementonovo = elementonovo.replace(",","")
   return elementonovo
-
-def numeroprimo(num):
-  """
-  Função pra saber se o número é um númeor primo
-  """
-  for conta in range(2,num):
-    if num % conta == 0:
-      return False
-    else:
-      continue
-  return True
-
+  
 def q11(lista):
   """
   Dada uma lista de números inteiros, faça uma redução para retornar o
@@ -209,4 +223,11 @@ def q17(lista):
     freq = q16(lista,elemento)
     dict[elemento]=freq
   return dict
+
+def q1SBC(lista):
+    qntd_errada = 0
+    for embalagem in lista:
+       if embalagem < 7:
+          qntd_errada += 1
+    return qntd_errada
     
