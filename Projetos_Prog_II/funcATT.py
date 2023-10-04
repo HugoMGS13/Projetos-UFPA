@@ -2,7 +2,7 @@ from math import sqrt
 
 def numeroprimo(num):
   """
-  Função pra saber se o número é um númeor primo
+  Função pra saber se o número é um número primo
   """
   for conta in range(2,num):
     if num % conta == 0:
@@ -10,7 +10,15 @@ def numeroprimo(num):
     else:
       continue
   return True
-  
+
+def encontrar_primo(num):
+  num+=1
+  while True:
+    if numeroprimo(num) == True:
+      return num
+    else:
+      num+=1
+    
 def q1(lista1,lista2):
   """
   Dada duas listas de string de mesmo tamanho, faça o mapeamento para obter uma lista em que cada elemento seja a concatenação dos elementos de mesmo índice das duas listas. 
@@ -63,29 +71,36 @@ def q5(listaint,listastr):
       indice += 1
   return lista_nova
 
-# def q6(lista):
-#    """
- #   Dada uma lista onde cada elemento corresponde a uma lista de números
-  #  inteiros, faça um filtro para obter uma lista de listas onde a soma dos elementos da
-   # lista de uma determinada posição é maior que a soma dos elementos da lista da
-    #próxima posição. 
-    #"""
+def q6(listao):
+  """
+  Dada uma lista onde cada elemento corresponde a uma lista de números
+  inteiros, faça um filtro para obter uma lista de listas onde a soma dos elementos da
+  lista de uma determinada posição é maior que a soma dos elementos da lista da
+  próxima posição. 
+  """
+  lista_nova = []
+  for listinha in listao:
+    if sum(listinha) <= listao.index(listinha)+1:
+      lista_nova.insert(listao.index(listinha),listinha)
+    else:
+      lista_nova.append(listinha)
+  return lista_nova
     
 def q7(lista1,lista2,lista3):
-    """
-    Dada três lista de números inteiros, faça uma redução para encontrar o
-    menor número resultante da soma dos elementos de índices correspondentes.
-    """
-    indice = 0
-    result = lista1[0]+lista2[0]+lista3[0]
-    for elemento in lista1:
-        soma = elemento + lista2[indice] + lista3[indice]
-        indice += 1
-        if soma <= result:
-            result = soma
-        elif soma > result:
-            continue
-    return result
+  """
+  Dada três lista de números inteiros, faça uma redução para encontrar o
+  menor número resultante da soma dos elementos de índices correspondentes.
+  """
+  indice = 0
+  result = lista1[0]+lista2[0]+lista3[0]
+  for elemento in lista1:
+    soma = elemento + lista2[indice] + lista3[indice]
+    indice += 1
+    if soma <= result:
+      result = soma
+    elif soma > result:
+      continue
+  return result
 
 ##def q8(lista):
 #  """
@@ -230,4 +245,3 @@ def q1SBC(lista):
        if embalagem < 7:
           qntd_errada += 1
     return qntd_errada
-    
