@@ -245,3 +245,42 @@ def q1SBC(lista):
        if embalagem < 7:
           qntd_errada += 1
     return qntd_errada
+  
+def q2sbc(lista,media):
+  result = 0
+  for nota in lista:
+    if nota > media:
+      result += 1
+    else:
+      continue
+  return result
+
+def q2sbc_compressed(lista,media):
+  return sum([1 for nota in lista if nota > media])
+      
+def q3sbc(lista):
+  return max(lista)
+
+def q4sbc(lista):
+  lista_nova = []
+  for num in lista:
+    if num % 2 == 0:
+      lista_nova.append(num)
+    else:
+      continue
+  return (sum(lista_nova)//len(lista_nova))
+
+#def q4sbc_compressed(lista):
+  return[sum(num) for num in lista if num % 2 == 0]//sum(num)
+
+def q5sbc(lista,alvo):
+  repetição = 0
+  for elemento in lista:
+    if elemento == alvo:
+      repetição += 1
+    else:
+      continue
+  return repetição
+
+def q5sbc_compressed(lista,alvo):
+  return sum([1 for elemento in lista if elemento == alvo])
