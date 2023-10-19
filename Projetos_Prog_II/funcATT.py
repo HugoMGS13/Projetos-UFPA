@@ -55,8 +55,19 @@ def q3(lista):
 def q3_compressed(lista):
    return sorted([elemento for elemento in lista if len(elemento) < 10])
 
-#falta fazer: def q4()
-
+def q4(lista):
+  lista_nova = []
+  veri = None
+  for listinha in lista:
+    for item in listinha:
+      if type(item) == int:
+        veri = True
+      else:
+        veri = False
+    if veri == True:
+      lista_nova.append(listinha)
+  return lista_nova
+    
 def q5(listaint,listastr):
   """
   Dada uma lista de string e uma lista de números inteiros, faça um filtro para obter uma lista de string onde o tamanho do elemento é menor ou igual ao valor do número inteiro de índice correspondente
@@ -102,34 +113,21 @@ def q7(lista1,lista2,lista3):
       continue
   return result
 
-##def q8(lista):
-#  """
- #   Dada uma lista de string, faça uma redução para determinar o tamanho da
-  #  maior string. Retorne o valor encontrado e o índice correspondente na lista. Se mais de
-   # uma string possuir o maior tamanho, retorne o menor índice.
-    #"""
-    #medidor = len(lista[0])
-    #for string in lista:
-      #  if len(string) >= medidor:
-       #     medidor = len(string)
-       
+def q8(lista):
+ """
+ Dada uma lista de string, faça uma redução para determinar o tamanho da
+ maior string. Retorne o valor encontrado e o índice correspondente na lista. Se mais de
+ uma string possuir o maior tamanho, retorne o menor índice.
+ """
+ return lista.index(max(lista)) 
+      
 #def q9(lista):
-  #  """
- #   Dada uma lista de números reais, faça uma redução que implique na soma
-   # dos elementos. O elemento da posição i só pode ser somado se ele for maior que o
-   # elemento da posição i+1 (INCOMPLETA)
-   # """
-   # veri = 0
-   # indice = lista[1]
-   # for elemento in lista:
-    #    if elemento > lista[elemento+1]:
-     #       indice += 1
-      #      veri += 1
-    #if veri == len(lista):
-     #   return sum(lista)
-    #else:
-     #   return 'Essa lista não está ordenada em ordem decrescente'
-     
+ """
+  Dada uma lista de números reais, faça uma redução que implique na soma
+  dos elementos. O elemento da posição i só pode ser somado se ele for maior que o
+  elemento da posição i+1
+ """
+    
 def q10(lista):
   """
   Dada uma lista de string, faça uma redução que resulte em uma string
@@ -284,3 +282,69 @@ def q5sbc(lista,alvo):
 
 def q5sbc_compressed(lista,alvo):
   return sum([1 for elemento in lista if elemento == alvo])
+
+def q6sbc(lista,vel):
+  qtd_tarefas = 0
+  complexidade = 0
+  for item in lista:
+    complexidade += item
+    if complexidade <= vel:
+      qtd_tarefas += 1
+    else:
+      break
+  return qtd_tarefas
+
+def q7sbc(lista):
+  result = 0
+  for convidado in lista:
+    if convidado == lista.index(convidado) + 1:
+      result += 1
+  return result
+
+def q7sbc_compressed(lista):
+  return sum([ 1 for convidado in lista if convidado == lista.index(convidado) + 1])
+
+def q8sbc(lista):
+  E = 0
+  B = 0
+  R = 0
+  I = 0
+  for aluno in lista:
+    if aluno == "E":
+      E += 1
+    elif aluno == "B":
+      B += 1
+    elif aluno == "R":
+      R += 1
+    elif aluno == "I":
+      I += 1
+  return f'E = {E}, B = {B}, R = {R}, I = {I}'
+
+def q9sbc(lista):
+  MS = 0
+  S = 0
+  QS = 0
+  IS = 0
+  for elemento in lista:
+    if elemento == 0:
+      MS += 1
+    elif elemento >= 1 and elemento <= 3:
+      S += 1
+    elif elemento >= 4 and elemento <= 5:
+      QS += 1
+    elif elemento > 5:
+      IS += 1
+  return f'Muito seguro: {MS} \nSeguro: {S} \nQuase seguro: {QS} \nInseguro: {IS}'
+
+def q15sbc(lista):
+  qntd = 0
+  listanum = []
+  indice = 1
+  for numero in lista:
+    if numero % 2 == 0 and indice % 2 == 0:
+      qntd += 1
+      listanum.append(numero)
+      indice += 1
+    else:
+      indice += 1
+  return f'Quantidade de números: {qntd} \nNúmeros: {listanum}'
