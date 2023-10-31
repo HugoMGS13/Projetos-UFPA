@@ -1,0 +1,12 @@
+Conjuntos em expressões regulares:
+'[0-9]' = \d -> Qualquer caractere que seja um dígito
+'[^0-9] = \D -> Qualquer caractere que NÃO seja um dígito
+'[A-Z]'
+'[a-z]'
+'[A-Za-z]' -> Todos os caracteres de A - Z maiúsculo ou minúsculo
+'[a-zA-ZÁ-Ú]' -> Todos os caracteres de A - Z maiúsculo ou minúsculo ou com acento
+\s -> Espaço em branco
+\. -> Ponto
+\w -> Qualquer letra, dígito e underline
+/( -> Reconhecer os parenteses
+print(r'Oi\nFim') -> o 'r' faz todos os caracteres especiais serem desconsiderados
