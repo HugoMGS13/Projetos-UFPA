@@ -29,3 +29,11 @@ def val_rg(uf):
     else:
         print('UF inválido')
 
+def ex_1RE(string):
+    regex = r'A{2,}'
+    check = re.fullmatch(regex, string)
+    if check and len(string) % 2 == 0:
+        print('Ok')
+    else:
+        print('No')
+
