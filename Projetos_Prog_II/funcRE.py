@@ -37,3 +37,41 @@ def ex_1RE(string):
     else:
         print('No')
 
+def main():
+    while True:
+        senha = input('Digite uma senha forte: ')
+        if muito_forte(senha):
+            print('Senha muito forte')
+        elif forte(senha):
+            print('Senha forte')
+            break
+        elif media(senha):
+            print('Senha media')
+        elif fraca(senha):
+            print('Senha fraca')
+
+def muito_forte(senha): 
+    return re.search("[A-Z]", senha) and\
+         re.search('[a-z]', senha) and\
+         re.search('[0-9]', senha) and\
+         len(re.findall("[A-Za-z0-9]", senha)) >= 3 and\
+         len(senha) >= 10 #Se nenhuma dessas der certo, retorna False, se todas derem certo, retorna True
+
+def forte(senha):
+    return re.search('[A-Z]', senha) and\
+    re.search('[a-z]', senha) and\
+    re.search('\d',senha) and\
+    re.search('\W',senha) and\
+    len(senha) >= 8
+
+def media(senha):
+    return re.search('[A-Z]',senha) and\
+    re.search('[a-z]',senha) and\
+    re.search('\d', senha) and\
+    len(senha) >= 6
+
+def fraca(senha):
+    return len(senha) >= 6
+
+main()
+
