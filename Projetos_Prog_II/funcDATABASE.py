@@ -20,7 +20,7 @@ def questao_04():
     bd = load_data_base()
     ufs = bd['uf']
     mortes = bd['mortos']
-    total = sum([int(valor) for uf, valor in zip(ufs,mortes) if uf == 'PA'])
-    print(total)
+    total_mortos = sum([int(valor) for uf, valor in zip(ufs,mortes) if uf == 'PA']) 
+    print(total_mortos)
 
 questao_04()
