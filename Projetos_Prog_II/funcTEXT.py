@@ -33,12 +33,15 @@ def cadastrar():
             regex_nome = re.compile(r'[A-Za-zÁ-Úá-ú]{3,}')
             regex_telefone = re.compile(r'\d{2}\s\d{9}')
             regex_email = re.compile(r'\w{4,}@\w{5,}\.com')
+            
             nome = input("Digite seu nome: ")
             telefone = input("Digite seu telefone: ")
             email = input("Digite seu email: ")
+            
             check1 = regex_nome.fullmatch(nome)
             check2 = regex_telefone.fullmatch(telefone)
             check3 = regex_email.fullmatch(email)
+            
             if check1 and check2 and check3:
                 with open('bd_cadastros.txt', 'a', encoding= 'utf-8') as f:
                     f.write(f'CADASTRO de {datetime.date.today()}: Nome: {nome}, Email: {email}, Telefone: {telefone}')
